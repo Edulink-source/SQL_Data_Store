@@ -1,0 +1,99 @@
+
+/*
+=========================================================================================
+Stored Procedure:load Bronze layer (Source -> Bronze)
+=========================================================================================
+Script Purpose:
+	This stored procedure load data into the 'bronze' schema from external csv files.
+	It perform the following actions:
+	- Truncating the bronze tables before loading data.
+	- Uses the 'BULK INSERT' command to load data from csv Files to bronze tables.
+parameters:
+	None.
+ This stored procedure does not accept any parameters 
+Usage Example:
+	EXEC bronze.load_bronxe;
+===========================================================================================
+*/
+
+
+
+CREATE OR ALTER PROCEDURE bronze.load_bronze AS
+BEGIN
+	TRUNCATE TABLE bronze.crm_cus_info;
+
+	BULK INSERT bronze.crm_cus_info
+	FROM 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/cust_info.csv.csv'
+	WITH(
+	FIRSTROW = 2,
+	FIELDTERMINATOR = ',',
+	TABLOCK);
+
+	SELECT * FROM bronze.crm_cus_info;
+
+
+
+	TRUNCATE TABLE bronze.crm_prd_info;
+
+	BULK INSERT bronze.crm_prd_info
+	FROM 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/prd_info.csv.csv'
+	WITH(
+	FIRSTROW = 2,
+	FIELDTERMINATOR = ',',
+	TABLOCK);
+
+	SELECT * FROM bronze.crm_prd_info;
+
+
+
+	TRUNCATE TABLE bronze.crm_sales_details;
+
+	BULK INSERT bronze.crm_sales_details
+	FROM 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/sales_details.csv.csv'
+	WITH(
+	FIRSTROW = 2,
+	FIELDTERMINATOR = ',',
+	TABLOCK);
+
+	--SELECT * FROM bronze.crm_sales_details;
+
+
+
+	TRUNCATE TABLE bronze.erp_CUST_AZ12;
+
+	BULK INSERT bronze.erp_CUST_AZ12
+	FROM 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/CUST_AZ12.csv'
+	WITH(
+	FIRSTROW = 2,
+	FIELDTERMINATOR = ',',
+	TABLOCK);
+
+	--SELECT * FROM bronze.erp_CUST_AZ12;
+
+
+
+
+	TRUNCATE TABLE bronze.erp_LOC_A101;
+
+	BULK INSERT bronze.erp_LOC_A101
+	FROM 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/LOC_A101.csv'
+	WITH(
+	FIRSTROW = 2,
+	FIELDTERMINATOR = ',',
+	TABLOCK);
+
+	-- SELECT * FROM bronze.erp_LOC_A101
+
+
+
+	TRUNCATE TABLE bronze.erp_PX_CAT_G1V2;
+
+	BULK INSERT bronze.erp_PX_CAT_G1V2
+	FROM 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/PX_CAT_G1V2.csv'
+	WITH(
+	FIRSTROW = 2,
+	FIELDTERMINATOR = ',',
+	TABLOCK);
+
+	--SELECT * FROM bronze.erp_PX_CAT_G1V2;
+END
