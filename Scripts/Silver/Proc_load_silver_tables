@@ -173,10 +173,10 @@ BEGIN
 	PRINT '>> Inserting Data Into: silver.erp_PX_CAT_G1V2';
 
 	INSERT INTO silver.erp_PX_CAT_G1V2(
-			ID,
-			CAT,
-			SUBCAT,
-			MAINTENACE)
+		ID,
+		CAT,
+		SUBCAT,
+		MAINTENACE)
 
 	SELECT 
 		ID,
@@ -188,6 +188,3 @@ END
 ;
 
 
-
-
-EXEC silver.load_silver;
