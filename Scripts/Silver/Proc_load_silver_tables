@@ -1,4 +1,23 @@
 
+/*
+=========================================================================================
+Stored Procedure:load Silver layer (Broze -> Silver)
+=========================================================================================
+Script Purpose:
+	This stored procedure performs the ETL (Etract, Transform, Load) process to populate 
+	the 'Silver' shema tables from the 'Broze' shema.
+Actions performe:
+	- Truncates Silver tables.
+	- Inserts transformed and cleaned data from Broze into Silver tables.
+
+Parameters:
+	None.
+	This stored procedure does not accept any parameters or return any values.
+
+Usage Example:
+	EXEC silver.load_silver;
+===========================================================================================
+*/
 
 CREATE OR ALTER PROCEDURE silver.load_silver AS 
 BEGIN
