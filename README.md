@@ -24,7 +24,23 @@ this project lays the groundwork
 ## 📉 Architecture and Design
 
 1. Data Sources - Raw input (CSV)
-2. Staging Layer - Initial landing area and initial transformation
-3. Data Warehouse - Modeled schemas (Facts, Dimensions) optimized for analytics
+2. SQL Server
+3. Data Warehouse - Modeled schemas (Bronze layer, Silver layer and Gold layer) optimized for analytics
+4. Visualization and Reporting
 
 <img width="1062" height="550" alt="data architecture" src="https://github.com/user-attachments/assets/556d9987-ac79-4ab9-9c8a-a2a21220ccb7" />
+
+## Usage 
+
+⏩ Run specific ETL pipeline(Stored Procedure)
+
+``` EXECUTE bronze.load_bronze; ```
+
+⏩ Query the analytics layer
+
+``` SELECT *  FROM gold.dim_customers; ```
+
+
+⏩ Connect BI tools to the database for dashboarding
+   
+
